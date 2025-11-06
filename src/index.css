@@ -121,6 +121,7 @@
 
 
 /* Add these custom animations to your index.css file after the base styles */
+/* Add these custom animations to your index.css file after the base styles */
 
 @layer utilities {
   /* Floating hearts animation */
@@ -268,5 +269,57 @@
 
   .animation-delay-400 {
     animation-delay: 400ms;
+  }
+
+  /* Confetti fall animation */
+  @keyframes confetti-fall {
+    0% {
+      transform: translateY(-100vh) rotate(0deg);
+      opacity: 1;
+    }
+    100% {
+      transform: translateY(100vh) rotate(720deg);
+      opacity: 0;
+    }
+  }
+
+  .animate-confetti-fall {
+    animation: confetti-fall linear forwards;
+  }
+
+  /* Scale in animation */
+  @keyframes scale-in {
+    from {
+      transform: scale(0.9);
+      opacity: 0;
+    }
+    to {
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
+
+  .animate-scale-in {
+    animation: scale-in 0.3s ease-out forwards;
+  }
+
+  /* Fade in out for sparkles */
+  @keyframes fade-in-out {
+    0% {
+      opacity: 0;
+      transform: scale(0);
+    }
+    50% {
+      opacity: 1;
+      transform: scale(1);
+    }
+    100% {
+      opacity: 0;
+      transform: scale(0);
+    }
+  }
+
+  .animate-fade-in-out {
+    animation: fade-in-out 2s ease-in-out forwards;
   }
 }
