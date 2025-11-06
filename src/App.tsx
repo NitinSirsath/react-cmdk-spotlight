@@ -23,9 +23,57 @@ import photo1 from "../public/photo1.jpg";
 import photo2 from "../public/photo2.jpg";
 import photo3 from "../public/photo3.jpeg";
 
+// Types
+interface ConfettiItem {
+  id: number;
+  left: number;
+  delay: number;
+  duration: number;
+  color: string;
+}
+
+interface Photo {
+  id: number;
+  caption: string;
+  mood: string;
+  src: string;
+}
+
+interface HeartItem {
+  id: number;
+  x: number;
+}
+
+interface SparkleItem {
+  id: number;
+  x: number;
+  y: number;
+  size: number;
+}
+
+interface Letter {
+  title: string;
+  message: string;
+  color: string;
+}
+
+interface PhotoModalProps {
+  photo: Photo;
+  onClose: () => void;
+  onNext: () => void;
+  onPrev: () => void;
+  totalPhotos: number;
+  currentIndex: number;
+}
+
+interface LoveLetterCardProps {
+  letter: Letter;
+  index: number;
+}
+
 // Confetti Component
 const Confetti = () => {
-  const [confetti, setConfetti] = useState([]);
+  const [confetti, setConfetti] = useState<ConfettiItem[]>([]);
 
   useEffect(() => {
     const colors = ["#ec4899", "#ef4444", "#f43f5e", "#fbbf24", "#fb923c"];
@@ -65,9 +113,9 @@ const PhotoModal = ({
   onPrev,
   totalPhotos,
   currentIndex,
-}) => {
+}: PhotoModalProps) => {
   useEffect(() => {
-    const handleEsc = (e) => {
+    const handleEsc = (e: KeyboardEvent) => {
       if (e.key === "Escape") onClose();
     };
     window.addEventListener("keydown", handleEsc);
@@ -119,7 +167,7 @@ const PhotoModal = ({
 };
 
 // Love Letter Card Component
-const LoveLetterCard = ({ letter, index }) => {
+const LoveLetterCard = ({ letter, index }: LoveLetterCardProps) => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
@@ -176,8 +224,8 @@ const LoveLetterCard = ({ letter, index }) => {
 
 // Hero Section Component
 const HeroSection = () => {
-  const [hearts, setHearts] = useState([]);
-  const [sparkles, setSparkles] = useState([]);
+  const [hearts, setHearts] = useState<HeartItem[]>([]);
+  const [sparkles, setSparkles] = useState<SparkleItem[]>([]);
   const [showConfetti, setShowConfetti] = useState(true);
 
   useEffect(() => {
@@ -316,13 +364,13 @@ const HeroSection = () => {
             <p className="text-xl md:text-2xl text-gray-700 leading-relaxed">
               Fierce when needed, kind when it matters, and unapologetically
               herself. 🍫
-              <br />A balance of strength and softness — that’s what makes you
+              <br />A balance of strength and softness — that's what makes you
               amazing 👑
             </p>
             <div className="inline-block bg-gradient-to-r from-pink-500 to-red-500 text-white px-8 py-3 rounded-full font-bold text-xl animate-bounce-slow shadow-xl">
               <span className="inline-flex items-center gap-2">
                 <Sparkles size={20} />
-                Here’s to celebrating *you*, just the way you are.
+                Here's to celebrating *you*, just the way you are.
                 <Sparkles size={20} />
               </span>
             </div>
@@ -368,14 +416,14 @@ const HeroSection = () => {
 
 // Photo Gallery Component
 const PhotoGallery = () => {
-  const [selectedPhoto, setSelectedPhoto] = useState(null);
+  const [selectedPhoto, setSelectedPhoto] = useState<Photo | null>(null);
   const [currentIndex, setCurrentIndex] = useState(0);
 
-  const photos = [
+  const photos: Photo[] = [
     { id: 1, caption: "Cinematic vibes ✨", mood: "happy", src: Cinematic1 },
     {
       id: 2,
-      caption: "That look of determination — classic you.e 😤💕",
+      caption: "That look of determination — classic you. 😤💕",
       mood: "angry",
       src: photo3,
     },
@@ -395,7 +443,7 @@ const PhotoGallery = () => {
     { id: 6, caption: "Pure perfection ✨", mood: "happy", src: Cinematic2 },
   ];
 
-  const openModal = (index) => {
+  const openModal = (index: number) => {
     setCurrentIndex(index);
     setSelectedPhoto(photos[index]);
   };
@@ -476,11 +524,11 @@ const PhotoGallery = () => {
 
 // Love Letters Section
 const LoveLetters = () => {
-  const letters = [
+  const letters: Letter[] = [
     {
       title: "Your Anger is Cute 😤",
       message:
-        "Even when you’re upset, I still see how deeply you care.. That little pout? Adorable. Those fiery eyes? Captivating. You carry grace, even in your anger! Your passion is what makes you YOU, and I wouldn't change a thing.",
+        "Even when you're upset, I still see how deeply you care.. That little pout? Adorable. Those fiery eyes? Captivating. You carry grace, even in your anger! Your passion is what makes you YOU, and I wouldn't change a thing.",
       color: "from-red-400 to-pink-400",
     },
     {
@@ -587,7 +635,7 @@ const Footer = () => {
           <p className="text-gray-700 text-lg">
             Made with{" "}
             <Heart className="inline w-5 h-5 text-red-500 fill-red-500 animate-pulse" />{" "}
-            for the my amazing girl
+            for my amazing girl
           </p>
           <p className="text-gray-600">
             P.S. - Hope this made you smile — even a little 😄 😘
