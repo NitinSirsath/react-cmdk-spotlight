@@ -1,21 +1,21 @@
-import { useState, useEffect } from "react";
 import {
-  Heart,
   Cake,
-  Sparkles,
-  Gift,
-  Star,
-  Music,
-  Flame,
-  Crown,
   Camera,
-  X,
   ChevronLeft,
   ChevronRight,
-  Mail,
+  Crown,
+  Flame,
+  Gift,
+  Heart,
   Lock,
+  Mail,
+  Music,
+  Sparkles,
+  Star,
   Unlock,
+  X,
 } from "lucide-react";
+import { useEffect, useState } from "react";
 import BenchImage from "/bench-cinematic.jpg";
 import Cinematic1 from "/cinametic.jpg";
 import Cinematic2 from "/cinematic2.jpg";
