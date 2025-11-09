@@ -80,7 +80,6 @@ const SpotlightBase = () => {
         setOpen(false);
       }
     };
-
     document.addEventListener("keydown", down);
     return () => document.removeEventListener("keydown", down);
   }, []);
@@ -92,59 +91,59 @@ const SpotlightBase = () => {
   };
 
   if (!open) return null;
-
   return (
     <>
       <div
-        className="fixed inset-0 bg-black/50 z-40"
+        className="fixed inset-0 bg-black/70 z-40"
         onClick={() => setOpen(false)}
       />
-
       <div className="fixed z-50 top-32 left-1/2 w-full max-w-2xl -translate-x-1/2 px-4">
-        <Command className="rounded-xl bg-neutral-950 border border-neutral-800 shadow-2xl overflow-hidden">
+        <Command
+          className="rounded-xl bg-black/30 backdrop-blur-md border border-white/10 shadow-2xl overflow-hidden text-white"
+          loop
+        >
           {/* Header */}
           <div className="px-3 pt-3 pb-2">
-            <div className="text-sm text-neutral-400 mb-3 px-2">Home</div>
-
-            {/* Search Input */}
+            <div className="text-sm text-white/60 mb-3 px-2">Home</div>
             <div className="relative">
               <Command.Input
                 value={search}
                 onValueChange={setSearch}
-                className="w-full bg-transparent text-neutral-200 text-2xl placeholder:text-neutral-600 focus:outline-none px-2 py-1"
+                className="w-full bg-transparent text-white text-2xl placeholder:text-white/60 focus:outline-none px-2 py-1"
                 placeholder="What do you need?"
               />
             </div>
           </div>
-
-          <div className="h-px bg-neutral-800 mx-3"></div>
-
+          <div className="h-px bg-white/20 mx-3"></div>
           <Command.List className="max-h-96 overflow-auto px-3 py-3">
             <Command.Empty className="py-12 text-center">
-              <p className="text-sm text-neutral-500">No results found</p>
+              <p className="text-sm text-white/60">No results found</p>
             </Command.Empty>
 
             {/* Projects Section */}
             <Command.Group>
-              <div className="text-sm text-neutral-400 px-2 mb-2">Projects</div>
+              <div className="text-sm text-white/60 px-2 mb-2">Projects</div>
               <div className="space-y-px">
                 {mockData.projects.map((item) => (
                   <Command.Item
                     key={item.id}
                     value={item.label}
                     onSelect={() => handleSelect(item)}
-                    className="flex items-center justify-between gap-3 px-2 py-2 rounded-lg cursor-pointer text-neutral-300 hover:bg-neutral-900 data-[selected=true]:bg-neutral-900 transition-colors group"
+                    className="flex items-center justify-between gap-3 px-2 py-2 rounded-lg cursor-pointer text-white/90 hover:bg-white/10 data-[selected=true]:bg-white/10 transition-colors group"
                   >
                     <div className="flex items-center gap-3">
                       {item.icon && (
-                        <item.icon className="h-4 w-4 text-neutral-500" />
+                        <item.icon className="h-4 w-4 text-white/60" />
                       )}
                       <span className="text-sm">{item.label}</span>
                     </div>
                     {item.shortcut && (
-                      <div className="flex items-center gap-1 text-xs text-neutral-600">
+                      <div className="flex items-center gap-1 text-xs text-white/60">
                         {item.shortcut.split(" ").map((key, i) => (
-                          <kbd key={i} className="font-mono">
+                          <kbd
+                            key={i}
+                            className="font-mono px-1 py-0.5 bg-white/10 rounded"
+                          >
                             {key}
                           </kbd>
                         ))}
@@ -157,28 +156,28 @@ const SpotlightBase = () => {
 
             {/* Teams Section */}
             <Command.Group>
-              <div className="text-sm text-neutral-400 px-2 mb-2 mt-4">
-                Teams
-              </div>
+              <div className="text-sm text-white/60 px-2 mb-2 mt-4">Teams</div>
               <div className="space-y-px">
                 {mockData.teams.map((item) => (
                   <Command.Item
                     key={item.id}
                     value={item.label}
                     onSelect={() => handleSelect(item)}
-                    className="flex items-center justify-between gap-3 px-2 py-2 rounded-lg cursor-pointer text-neutral-300 hover:bg-neutral-900 data-[selected=true]:bg-neutral-900 transition-colors group"
+                    className="flex items-center justify-between gap-3 px-2 py-2 rounded-lg cursor-pointer text-white/90 hover:bg-white/10 data-[selected=true]:bg-white/10 transition-colors group"
                   >
                     <div className="flex items-center gap-3">
                       {item.icon && (
-                        <item.icon className="h-4 w-4 text-neutral-500" />
+                        <item.icon className="h-4 w-4 text-white/60" />
                       )}
-
                       <span className="text-sm">{item.label}</span>
                     </div>
                     {item.shortcut && (
-                      <div className="flex items-center gap-1 text-xs text-neutral-600">
+                      <div className="flex items-center gap-1 text-xs text-white/60">
                         {item.shortcut.split(" ").map((key, i) => (
-                          <kbd key={i} className="font-mono">
+                          <kbd
+                            key={i}
+                            className="font-mono px-1 py-0.5 bg-white/10 rounded"
+                          >
                             {key}
                           </kbd>
                         ))}
@@ -191,26 +190,23 @@ const SpotlightBase = () => {
 
             {/* Help Section */}
             <Command.Group>
-              <div className="text-sm text-neutral-400 px-2 mb-2 mt-4">
-                Help
-              </div>
+              <div className="text-sm text-white/60 px-2 mb-2 mt-4">Help</div>
               <div className="space-y-px">
                 {mockData.help.map((item) => (
                   <Command.Item
                     key={item.id}
                     value={item.label}
                     onSelect={() => handleSelect(item)}
-                    className="flex items-center justify-between gap-3 px-2 py-2 rounded-lg cursor-pointer text-neutral-300 hover:bg-neutral-900 data-[selected=true]:bg-neutral-900 transition-colors group"
+                    className="flex items-center justify-between gap-3 px-2 py-2 rounded-lg cursor-pointer text-white/90 hover:bg-white/10 data-[selected=true]:bg-white/10 transition-colors group"
                   >
                     <div className="flex items-center gap-3">
                       {item.icon && (
-                        <item.icon className="h-4 w-4 text-neutral-500" />
+                        <item.icon className="h-4 w-4 text-white/60" />
                       )}
-
                       <span className="text-sm">{item.label}</span>
                     </div>
                     {item.shortcut && (
-                      <kbd className="text-xs text-neutral-600 font-mono">
+                      <kbd className="text-xs text-white/60 font-mono px-1 py-0.5 bg-white/10 rounded">
                         {item.shortcut}
                       </kbd>
                     )}
@@ -219,10 +215,10 @@ const SpotlightBase = () => {
               </div>
             </Command.Group>
 
-            {/* Recent Section - Only shows when not searching */}
+            {/* Recent Section */}
             {!search && (
               <Command.Group>
-                <div className="text-sm text-neutral-400 px-2 mb-2 mt-4">
+                <div className="text-sm text-white/60 px-2 mb-2 mt-4">
                   Recent
                 </div>
                 <div className="space-y-px">
@@ -231,20 +227,20 @@ const SpotlightBase = () => {
                       key={item.id}
                       value={item.label}
                       onSelect={() => handleSelect(item)}
-                      className="flex items-center justify-between gap-3 px-2 py-2.5 rounded-lg cursor-pointer hover:bg-neutral-900 data-[selected=true]:bg-neutral-900 transition-colors group"
+                      className="flex items-center justify-between gap-3 px-2 py-2.5 rounded-lg cursor-pointer hover:bg-white/10 data-[selected=true]:bg-white/10 transition-colors group"
                     >
                       <div className="flex items-center gap-3 min-w-0 flex-1">
-                        <Clock className="h-4 w-4 text-neutral-600 flex-shrink-0" />
+                        <Clock className="h-4 w-4 text-white/60 flex-shrink-0" />
                         <div className="min-w-0 flex-1">
-                          <div className="text-sm text-neutral-300 truncate">
+                          <div className="text-sm text-white truncate">
                             {item.label}
                           </div>
-                          <div className="text-xs text-neutral-600">
+                          <div className="text-xs text-white/60">
                             {item.category} · {item.time}
                           </div>
                         </div>
                       </div>
-                      <ArrowUpRight className="h-3.5 w-3.5 text-neutral-600 opacity-0 group-hover:opacity-100 transition-opacity flex-shrink-0" />
+                      <ArrowUpRight className="h-3.5 w-3.5 text-white/60 opacity-0 group-hover:opacity-100 transition-opacity flex-shrink-0" />
                     </Command.Item>
                   ))}
                 </div>
@@ -253,20 +249,28 @@ const SpotlightBase = () => {
           </Command.List>
 
           {/* Footer */}
-          <div className="border-t border-neutral-800 px-3 py-2.5 bg-neutral-950">
-            <div className="flex items-center justify-between text-xs text-neutral-600">
+          <div className="border-t border-white/20 px-3 py-2.5 bg-black/20">
+            <div className="flex items-center justify-between text-xs text-white/60">
               <div className="flex items-center gap-3">
                 <span className="flex items-center gap-1.5">
-                  <kbd className="font-mono">↑</kbd>
-                  <kbd className="font-mono">↓</kbd>
+                  <kbd className="font-mono px-1 py-0.5 bg-white/10 rounded">
+                    ↑
+                  </kbd>
+                  <kbd className="font-mono px-1 py-0.5 bg-white/10 rounded">
+                    ↓
+                  </kbd>
                   <span>Navigate</span>
                 </span>
                 <span className="flex items-center gap-1.5">
-                  <kbd className="font-mono">↵</kbd>
+                  <kbd className="font-mono px-1 py-0.5 bg-white/10 rounded">
+                    ↵
+                  </kbd>
                   <span>Select</span>
                 </span>
                 <span className="flex items-center gap-1.5">
-                  <kbd className="font-mono">ESC</kbd>
+                  <kbd className="font-mono px-1 py-0.5 bg-white/10 rounded">
+                    ESC
+                  </kbd>
                   <span>Close</span>
                 </span>
               </div>
