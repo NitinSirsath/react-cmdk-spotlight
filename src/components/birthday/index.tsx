@@ -22,6 +22,7 @@ import Cinematic2 from "/cinematic2.jpg";
 import photo1 from "/photo1.jpg";
 import photo2 from "/photo2.jpg";
 import photo3 from "/photo3.jpeg";
+import { Link } from "@tanstack/react-router";
 
 // Types
 interface ConfettiItem {
@@ -176,7 +177,7 @@ const LoveLetterCard = ({ letter, index }: LoveLetterCardProps) => {
       style={{ animationDelay: `${index * 100}ms` }}
     >
       <div
-        className={`relative bg-gradient-to-br ${
+        className={`relative bg-linear-to-br ${
           letter.color
         } p-1 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 cursor-pointer ${
           isOpen ? "scale-105" : "hover:scale-105"
@@ -271,7 +272,7 @@ const HeroSection = () => {
   }, []);
 
   return (
-    <div className="relative min-h-screen bg-gradient-to-br from-pink-100 via-rose-100 to-red-100 overflow-hidden">
+    <div className="relative min-h-screen bg-linear-to-br from-pink-100 via-rose-100 to-red-100 overflow-hidden">
       {/* Confetti */}
       {showConfetti && <Confetti />}
 
@@ -319,7 +320,7 @@ const HeroSection = () => {
 
           {/* Main title with extra effects */}
           <div className="relative">
-            <h1 className="text-5xl md:text-7xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-pink-600 via-red-500 to-pink-600 animate-gradient mb-2">
+            <h1 className="text-5xl md:text-7xl font-bold text-transparent bg-clip-text bg-linear-to-r from-pink-600 via-red-500 to-pink-600 animate-gradient mb-2">
               Happy Birthday
             </h1>
             <div className="flex justify-center gap-4 my-4">
@@ -367,7 +368,7 @@ const HeroSection = () => {
               <br />A balance of strength and softness — that's what makes you
               amazing 👑
             </p>
-            <div className="inline-block bg-gradient-to-r from-pink-500 to-red-500 text-white px-8 py-3 rounded-full font-bold text-xl animate-bounce-slow shadow-xl">
+            <div className="inline-block bg-linear-to-r from-pink-500 to-red-500 text-white px-8 py-3 rounded-full font-bold text-xl animate-bounce-slow shadow-xl">
               <span className="inline-flex items-center gap-2">
                 <Sparkles size={20} />
                 Here's to celebrating *you*, just the way you are.
@@ -461,7 +462,7 @@ const PhotoGallery = () => {
   };
 
   return (
-    <div className="py-20 bg-gradient-to-br from-red-50 via-pink-50 to-rose-50">
+    <div className="py-20 bg-linear-to-br from-red-50 via-pink-50 to-rose-50">
       <div className="container mx-auto px-4">
         <h2 className="text-4xl md:text-5xl font-bold text-center mb-4 text-red-600">
           Gallery of Moods 📸
@@ -475,7 +476,7 @@ const PhotoGallery = () => {
             <div
               key={photo.id}
               onClick={() => openModal(index)}
-              className="group relative aspect-square bg-gradient-to-br from-pink-200 to-red-200 rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-105 animate-fade-in-up cursor-pointer"
+              className="group relative aspect-square bg-linear-to-br from-pink-200 to-red-200 rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-105 animate-fade-in-up cursor-pointer"
               style={{ animationDelay: `${index * 100}ms` }}
             >
               <img
@@ -484,9 +485,9 @@ const PhotoGallery = () => {
                 className="absolute inset-0 w-full h-full object-cover"
               />
 
-              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+              <div className="absolute inset-0 bg-linear-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
 
-              <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-4 translate-y-2 group-hover:translate-y-0 transition-transform">
+              <div className="absolute bottom-0 left-0 right-0 bg-linear-to-t from-black/80 to-transparent p-4 translate-y-2 group-hover:translate-y-0 transition-transform">
                 <p className="text-white font-semibold text-center text-lg">
                   {photo.caption}
                 </p>
@@ -524,41 +525,41 @@ const PhotoGallery = () => {
 
 // Love Letters Section
 const LoveLetters = () => {
-  const letters: Letter[] = [
+  const letters = [
     {
-      title: "Your Anger is Cute 😤",
+      title: "Admiring Strength",
       message:
-        "Even when you're upset, I still see how deeply you care.. That little pout? Adorable. Those fiery eyes? Captivating. You carry grace, even in your anger! Your passion is what makes you YOU, and I wouldn't change a thing.",
+        "What impresses me most is the way you balance strength and independence. Your determination is inspiring, and your ability to stay true to yourself is something to admire.",
       color: "from-red-400 to-pink-400",
     },
     {
-      title: "The Boss Lady 👑",
+      title: "Appreciating Honesty",
       message:
-        "Your strength, your passion, your determination - everything about you inspires me. You're fierce and fabulous! The way you handle challenges with grace and fire makes me proud every single day.",
+        "In a world full of pretense, your honesty stands out. I appreciate the authenticity you bring to our connection, and the real conversations we've had.",
       color: "from-rose-400 to-red-400",
     },
     {
-      title: "My Safe Place 🏡",
+      title: "Moments of Connection",
       message:
-        "With you, peace feels real. Your laugh is my favorite sound, your smile is my favorite sight, and your love is my greatest treasure. Thank you for being my peace in this chaotic world.",
+        "Our moments together, whether light-hearted or deep, remind me of the value of genuine connection. I'm grateful for the experiences we've shared.",
       color: "from-pink-400 to-rose-400",
     },
     {
-      title: "Forever Grateful 🙏",
+      title: "Wishing You Well",
       message:
-        "Thank you for choosing me every day. For your patience, your love, your understanding. You make me want to be better. You make me believe in us. You make everything brighter just by being you.",
+        "I hope you continue to find joy in your journey, and that this year brings you more reasons to celebrate yourself and the path you're walking.",
       color: "from-red-300 to-pink-300",
     },
   ];
 
   return (
-    <div className="py-20 bg-gradient-to-br from-pink-100 via-red-50 to-rose-100">
+    <div className="py-20 bg-linear-to-br from-pink-100 via-red-50 to-rose-100">
       <div className="container mx-auto px-4">
         <h2 className="text-4xl md:text-5xl font-bold text-center mb-4 text-red-600">
-          Love Letters 💌
+          Appreciation Notes 💌
         </h2>
         <p className="text-center text-gray-600 mb-12 text-lg">
-          Click each envelope to read my heart ❤️
+          Each note is a moment of appreciation for who you are.
         </p>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
@@ -574,7 +575,7 @@ const LoveLetters = () => {
 // Birthday Wishes Component
 const BirthdayWishes = () => {
   return (
-    <div className="py-20 bg-gradient-to-br from-red-100 via-pink-100 to-rose-100 relative overflow-hidden">
+    <div className="py-20 bg-linear-to-br from-red-100 via-pink-100 to-rose-100 relative overflow-hidden">
       <div className="absolute top-10 left-10 animate-float">
         <Sparkles className="text-yellow-400 w-16 h-16 opacity-50" />
       </div>
@@ -588,34 +589,32 @@ const BirthdayWishes = () => {
             <Cake className="w-16 h-16 text-pink-500 mx-auto animate-bounce-slow" />
 
             <h2 className="text-3xl md:text-4xl font-bold text-red-600">
-              My Birthday Wish for You 🎂
+              My Birthday Wishes for You 🎂
             </h2>
 
             <div className="space-y-4 text-lg text-gray-700 leading-relaxed">
               <p>
-                On this special day, I wish you all the happiness in the world.
-                May your day be filled with laughter, love, and everything that
-                makes you smile.
+                Wishing you a year filled with meaningful moments, personal
+                growth, and happiness. May your days be bright and your
+                challenges be met with resilience.
               </p>
               <p className="text-pink-600 font-semibold">
-                May this year bring more smiles (and fewer reasons to get
-                annoyed at me 😅)
+                May you find reasons to smile, and appreciate each step forward.
               </p>
               <p>
-                Thank you for being you - fierce, passionate, caring, and
-                absolutely amazing. Here's to another year of adventures
-                together!
+                It's been a pleasure to witness your journey, and I hope this
+                year brings you all the positive changes you deserve.
               </p>
               <p className="text-2xl font-bold text-red-500">
-                You deserve every bit of joy this world has to offer — today and
-                always. ❤️
+                You deserve every bit of joy and fulfillment this world has to
+                offer — today and in the future. ❤️
               </p>
             </div>
 
             <div className="pt-6">
-              <div className="inline-flex items-center gap-2 bg-gradient-to-r from-pink-500 to-red-500 text-white px-8 py-4 rounded-full font-semibold text-lg shadow-lg animate-pulse-slow">
+              <div className="inline-flex items-center gap-2 bg-linear-to-r from-pink-500 to-red-500 text-white px-8 py-4 rounded-full font-semibold text-lg shadow-lg animate-pulse-slow">
                 <Heart className="fill-white" />
-                Happy Birthday, My Love!
+                Happy Birthday, Amruta!
                 <Heart className="fill-white" />
               </div>
             </div>
@@ -629,16 +628,15 @@ const BirthdayWishes = () => {
 // Footer Component
 const Footer = () => {
   return (
-    <div className="py-12 bg-gradient-to-br from-pink-200 via-red-200 to-rose-200">
+    <div className="py-12 bg-linear-to-br from-pink-200 via-red-200 to-rose-200">
       <div className="container mx-auto px-4 text-center">
         <div className="space-y-4">
           <p className="text-gray-700 text-lg">
-            Made with{" "}
-            <Heart className="inline w-5 h-5 text-red-500 fill-red-500 animate-pulse" />{" "}
-            for my amazing girl
+            Built with appreciation for someone special.
           </p>
           <p className="text-gray-600">
-            P.S. - Hope this made you smile — even a little 😄 😘
+            Wishing you a year ahead filled with growth, joy, and every reason
+            to celebrate.
           </p>
         </div>
       </div>
@@ -650,6 +648,14 @@ const Footer = () => {
 export default function AmrutaHappyBirthday() {
   return (
     <div className="min-h-screen font-sans">
+      <div className="absolute top-4 right-4 z-20">
+        <Link
+          to="/"
+          className="bg-black/10 text-black px-4 py-2 rounded-lg backdrop-blur-sm hover:bg-black/20 transition"
+        >
+          CMDK Pallets
+        </Link>
+      </div>
       <HeroSection />
       <PhotoGallery />
       <LoveLetters />
