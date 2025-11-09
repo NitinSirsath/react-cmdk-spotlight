@@ -22,7 +22,6 @@ import Cinematic2 from "/cinematic2.jpg";
 import photo1 from "/photo1.jpg";
 import photo2 from "/photo2.jpg";
 import photo3 from "/photo3.jpeg";
-import { Link } from "@tanstack/react-router";
 
 // Types
 interface ConfettiItem {
@@ -649,12 +648,12 @@ export default function AmrutaHappyBirthday() {
   return (
     <div className="min-h-screen font-sans">
       <div className="absolute top-4 right-4 z-20">
-        <Link
-          to="/"
+        <a
+          href="/"
           className="bg-black/10 text-black px-4 py-2 rounded-lg backdrop-blur-sm hover:bg-black/20 transition"
         >
           CMDK Pallets
-        </Link>
+        </a>
       </div>
       <HeroSection />
       <PhotoGallery />
