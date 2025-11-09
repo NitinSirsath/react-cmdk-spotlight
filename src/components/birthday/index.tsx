@@ -653,7 +653,7 @@ export default function AmrutaHappyBirthday() {
           to="/"
           className="bg-black/10 text-black px-4 py-2 rounded-lg backdrop-blur-sm hover:bg-black/20 transition"
         >
-          CMDK Pallets
+          CMDK Pallet
         </Link>
       </div>
       <HeroSection />
