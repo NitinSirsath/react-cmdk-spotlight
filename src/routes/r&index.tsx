@@ -1,6 +1,6 @@
-import SpotlightBase from "@/components/spotlight/spotlight-base";
+import { CommandMenu } from "@/components/spotlight/cmdk/command-menu";
 import { Vortex } from "@/components/ui/shadcn-io/vortex";
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { createFileRoute } from "@tanstack/react-router";
 
 export const Route = createFileRoute("/")({
   component: RouteComponent,
@@ -10,26 +10,25 @@ function RouteComponent() {
   return (
     <div className="h-screen w-full overflow-hidden bg-black">
       {/* Top right navigation button */}
-      <div className="absolute top-4 right-4 z-20">
+      {/* <div className="absolute top-4 right-4 z-20">
         <Link
-          to="/amruta-birthday" // replace with your route
+          to="/amruta-birthday"
           className="bg-white/10 text-white px-4 py-2 rounded-lg backdrop-blur-sm hover:bg-white/20 transition"
         >
           Amruta Birthday
         </Link>
-      </div>
+      </div> */}
 
       <Vortex
         backgroundColor="black"
         particleCount={700}
         baseHue={220}
-        rangeHue={100}
         baseSpeed={0.0}
         rangeSpeed={1.5}
         className="flex items-center justify-center w-full h-full"
       >
-        <SpotlightBase />
-        {/* Floating content with light blur background */}
+        {/* <SpotlightBase /> */}
+        <CommandMenu />
         <div className="backdrop-blur-md bg-white/10 rounded-xl p-8 text-center text-white z-10 max-w-xl mx-4">
           <h1 className="text-4xl md:text-5xl font-bold mb-2">
             Command Palette
